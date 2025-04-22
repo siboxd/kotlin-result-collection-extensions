@@ -1,0 +1,33 @@
+plugins {
+    //noinspection JavaPluginLanguageLevel
+    id("java-library")
+    id("org.jetbrains.kotlin.jvm")
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
+    withSourcesJar()
+    withJavadocJar()
+}
+
+repositories {
+    google()
+    mavenCentral()
+    maven { url = "https://jitpack.io" }
+}
+
+dependencies {
+    def kotlinCoroutinesVersion = "1.6.4"
+
+    // The library onto which extensions are built
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion")
+
+    // kotlin.Result extensions
+    implementation("com.github.siboxd:kotlin-result-extension:1.3.2")
+
+    // Testing dependencies
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinCoroutinesVersion")
+}
