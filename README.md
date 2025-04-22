@@ -6,6 +6,9 @@ This project adds several new extensions to collection types (`Iterable`, `Seque
 `Flow`) containing the Kotlin Result (`kotlin.Result<T>`) type to facilitate more robust,
 functional-style mapping and error handling.
 
+The aim of this library is to ensure the readability of the code, while keeping using the
+`kotlin.Result<T>` to wrap application results.
+
 ## Usage
 
 1. Add it in your root `build.gradle` at the end of repositories:
@@ -156,17 +159,17 @@ println(resultList) // Prints: [Success(Result), Failure(java.lang.RuntimeExcept
 ##### filterResultNot
 
 This is the same as [filterResult](#filterResult) but returns the elements that *do not match* the
-given predicate. Failures are not touched.
+given predicate. Failures are reported as they are.
 
 ##### filterResultIsInstance
 
 This is the same as [filterResult](#filterResult) but returns the elements that are instance of the
-given class. Failures are not touched.
+given class. Failures are reported as they are.
 
 ##### filterResultNotNull
 
 This is the same as [filterResult](#filterResult) but returns only not null elements. Failures are
-not touched.
+reported as they are.
 
 #### Actions Extensions
 
